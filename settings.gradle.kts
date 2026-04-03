@@ -1,6 +1,7 @@
 pluginManagement {
     repositories {
         mavenLocal() // 优先拉取本地 Maven 仓库（关键！）
+        maven { url = uri("https://jitpack.io") }
 
 
         google {
@@ -18,6 +19,7 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         mavenLocal() // 优先拉取本地 Maven 仓库（关键！）
+        maven { url = uri("https://jitpack.io") }
 
         google()
         mavenCentral()

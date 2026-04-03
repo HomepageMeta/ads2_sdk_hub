@@ -54,6 +54,7 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    implementation(project(":ads2_sdk_hub"))
-
+//    implementation(project(":ads2_sdk_hub"))
+    //HomepageMeta用户名， ads2_sdk_hub 仓库名
+    implementation("com.github.HomepageMeta:ads2_sdk_hub:v1.0.2")
 }

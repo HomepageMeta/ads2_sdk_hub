@@ -50,7 +50,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
 //    implementation(files("libs/Interweb-release.aar"))
-    implementation("com.xn.ads2:interweb-local:1.0.2")
+    implementation("com.xn.ads2:interweb-local:1.0.2")  //JitPack生成的依赖包，功整个moudle打包使用
 
 }
 
