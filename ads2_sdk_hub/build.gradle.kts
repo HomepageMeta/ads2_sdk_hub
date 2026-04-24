@@ -52,6 +52,17 @@ dependencies {
 //    implementation(files("libs/Interweb-release.aar"))
     implementation("com.xn.ads2:interweb-local:1.0.2")  //JitPack生成的依赖包，功整个moudle打包使用
 
+    val lifecycleVersion = "2.2.0"
+    implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-runtime:$lifecycleVersion")
+    annotationProcessor("androidx.lifecycle:lifecycle-compiler:$lifecycleVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation("com.android.installreferrer:installreferrer:2.2")
+    implementation("com.scottyab:rootbeer-lib:0.1.2")
+//    implementation(files("libs/garden-sdk-release.aar"))
+    implementation("com.xn.ads2:garden-sdk:1.0.2")  //JitPack生成的依赖包，功整个moudle打包使用
+
 }
 
 // 统一的 publishing 配置（合并重复部分，放到 afterEvaluate 中，AGP 9.0+ 推荐）
@@ -66,12 +77,20 @@ afterEvaluate {
                 artifact(file("libs/Interweb-release.aar"))
             }
 
-            // 2. 发布当前库的 release 版本（仅定义一次，避免重复）
+            // 2. 发布本地 AAR 到 Maven 本地仓库
+            create("gardenSdk", MavenPublication::class) {
+                groupId = "com.xn.ads2"
+                artifactId = "garden-sdk"
+                version = "1.0.2"
+                artifact(file("libs/garden-sdk-release.aar"))
+            }
+
+            // 3. 发布当前库的 release 版本（仅定义一次，避免重复）
             create("release", MavenPublication::class) {
                 from(components["release"])
                 groupId = "com.github.xn"
                 artifactId = "ads2_sdk_hub"
-                version = "v1.0.2"
+                version = "v1.0.3"
             }
         }
 
